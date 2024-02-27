@@ -17,7 +17,6 @@ const Game = () => {
   const [score, setScore] = useState<Score>({ x: 0, o: 0, draws: 0 });
   const [history, setHistory] = useState<Array<Move>>([]);
   const [stepNumber, setStepNumber] = useState<number>(0);
-  const [alertShown, setAlertShown] = useState<boolean>(false);
 
   useEffect(() => {
     const storedScore = localStorage.getItem("tic-tac-toe-score");
@@ -53,7 +52,6 @@ const Game = () => {
   const handleWinner = (winner: string) => {
     const winnerMessage = `Player ${winner} wins!`;
     alert(winnerMessage);
-    setAlertShown(true);
     if (winner === "X") {
       setScore((prevScore) => ({ ...prevScore, x: prevScore.x + 1 }));
     } else {
@@ -64,7 +62,6 @@ const Game = () => {
 
   const handleDraw = () => {
     alert("It's a draw!");
-    setAlertShown(true);
     setScore((prevScore) => ({ ...prevScore, draws: prevScore.draws + 1 }));
     resetGame();
   };
@@ -151,7 +148,6 @@ const Game = () => {
   );
 };
 
-// Function to calculate the winner
 const calculateWinner = (squares: Array<string | null>): string | null => {
   const lines = [
     [0, 1, 2],
