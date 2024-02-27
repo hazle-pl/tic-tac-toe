@@ -1,0 +1,43 @@
+.board{
+    border-collapse: collapse;
+        td {
+            padding: 0.5rem;
+            border: 2px solid var(--neutral-500);
+            width: 100px;
+            height: 100px;
+
+            .square{
+                height: 100%;
+                width: 100%;
+                border: none;
+                font-size: 60px;
+                line-height: 100px;
+                text-align: center;
+                background-color: transparent;
+                transition: 0.25s;
+                font-family: "Nunito", sans-serif;
+                font-weight: 600;
+                border-radius: 25px;
+                color: transparent;
+
+                &.checked-x{
+                    color: var(--primary-500);
+                }
+
+                &.checked-o{
+                    color: var(--primary-300);
+                }
+
+                &.checked-x,&.checked-o{
+                    &:hover{
+                        cursor: not-allowed;
+                    }
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    font-weight: 700;
+                }
+            }
+        }
+}
